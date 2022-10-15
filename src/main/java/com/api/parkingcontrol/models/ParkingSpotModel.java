@@ -1,4 +1,4 @@
-package models;
+package com.api.parkingcontrol.models;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -46,6 +46,14 @@ public class ParkingSpotModel implements Serializable{
 
 	@Column(nullable= false, length = 30)
 	private String block;
+	
+	public String getResponsibleName() {
+		return responsibleName;
+	}
+
+	public void setResponsibleName(String responsibleName) {
+		this.responsibleName = responsibleName;
+	}
 
 	public UUID getId() {
 		return id;
