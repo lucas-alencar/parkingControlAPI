@@ -86,8 +86,10 @@ public class ParkingSpotController {
 		}
 		
 		var parkingSpotModel = new ParkingSpotModel();
-		
-		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.save(ParkingSpotModel));
+		BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
+		parkingSpotModel.setId(parkingSpotModelOptional.get().getId());
+		parkingSpotModel.setRegistrationDate(parkingSpotModelOptional.get().getRegistrationDate());
+		return ResponseEntity.status(HttpStatus.OK).body(parkingSpotService.save(parkingSpotModel));
 	}
 	
 }
